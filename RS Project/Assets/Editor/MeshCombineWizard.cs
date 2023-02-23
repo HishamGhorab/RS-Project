@@ -79,7 +79,7 @@ public class MeshCombineWizard : ScriptableWizard
 			else materialToMeshFilterList.Add(material, new List<MeshFilter>() { meshFilter });
 		}
 
-		// For each material, create a new merged object, in the scene and in the assets.
+		// For each material, create a new merged object, in the scene and in the assets
 		foreach (var entry in materialToMeshFilterList) {
 			List<MeshFilter> meshesWithSameMaterial = entry.Value;
 			// Create a convenient material name
