@@ -16,4 +16,4 @@ MonoBehaviour:
   itemType: 2
   stackable: 0
   NoModel: 0
-  model: {fileID: 8420656374208249188, guid: 1917ed6b43a09824d89f8349e225361b, type: 3}
+  model: {fileID: 8420656374208249188, guid: 2d470f3fdd41b6040a395096626e5f88, type: 3}

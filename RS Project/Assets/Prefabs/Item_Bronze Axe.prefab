@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3529491670802130238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.544, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.7}
+  m_LocalPosition: {x: -0, y: 0.387, z: 0.21}
+  m_LocalScale: {x: 0.1, y: 0.21196815, z: 0.3298002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8420656374208249190}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e4a8faac5e4c9c44188ae9ba5e2e5528, type: 2}
+  - {fileID: 2100000, guid: 48477f8460f48dc42b7d5fc21b7d7040, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 8420656374208249190}
   - component: {fileID: 8420656374208249189}
   m_Layer: 0
-  m_Name: Item_Dragon Picaxe
+  m_Name: Item_Bronze Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

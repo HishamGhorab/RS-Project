@@ -20,13 +20,13 @@ public class ItemEquipManager : MonoBehaviour
         PlayerInventory.onItemEquip -= EquipItem;
     }
 
-    public void UpdateModelsInInventory(PlayerInventory playerInventory)
+    public void UpdateModelsInEquipList(PlayerInventory playerInventory)
     {
         for (int i = 0; i < playerInventory.inventory.Length; i++)
         {
             Item item = playerInventory.inventory[i].item;
             
-            //if slot is emoty
+            //if slot is empty
             if(item == null)
                 continue;
             
@@ -34,7 +34,7 @@ public class ItemEquipManager : MonoBehaviour
             if(item.itemType != ItemType.Weapon)
                 continue;
             
-            //temprary solution all items should have a model
+            //temporary solution all items should have a model
             if (item.NoModel)
                 continue;
             
@@ -45,7 +45,7 @@ public class ItemEquipManager : MonoBehaviour
             GameObject itemModel = Instantiate(item.model, handPosition);
             itemModel.SetActive(false);
             
-            storedItems.Add(item.itemName, item.model);
+            storedItems.Add(item.itemName, itemModel);
         }
     }
 
@@ -58,7 +58,10 @@ public class ItemEquipManager : MonoBehaviour
             model.SetActive(false);
         }
         
+        //temp
+        if (_item.NoModel)
+            return;
+        
         storedItems[_item.itemName].SetActive(true);
-        Debug.Log(storedItems[_item.itemName].activeSelf);
     }
 }

@@ -20,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
     private void Start()
     {
         itemEquipManager = GetComponent<ItemEquipManager>();
-        itemEquipManager.UpdateModelsInInventory(this);
+        itemEquipManager.UpdateModelsInEquipList(this);
     }
 
     public void AddToInventory(Item _item)
@@ -80,12 +80,23 @@ public class PlayerInventory : MonoBehaviour
 
     public bool SearchItem(Item _item)
     {
+        //Check if theres an item in INV
         for (int i = 0; i < inventory.Length; i++)
         {
             if (inventory[i].item == null)
-                return false;
+                continue;
             
             if (inventory[i].item.itemName == _item.itemName)
+                return true;
+        }
+        
+        //Check if that item is Equipped.
+        for (int i = 0; i < Equips.Length; i++)
+        {
+            if (Equips[i].slot.item == null)
+                continue;
+            
+            if (Equips[i].slot.item.itemName == _item.itemName)
                 return true;
         }
         return false;
@@ -124,9 +135,9 @@ public class PlayerInventory : MonoBehaviour
             }
             
             //Equipping 
-            Debug.Log($"You equipped {Equips[i].slot.item}");
             Equips[i].slot.quantity = 1;
             Equips[i].slot.item = item;
+            Debug.Log($"You equipped {Equips[i].slot.item}");
             inventory[invSlot].item = null;
             UpdateInventoryUI();
             onItemEquip.Invoke(item);
@@ -139,7 +150,7 @@ public class PlayerInventory : MonoBehaviour
     void UpdateInventoryUI()
     {
         inventoryUI.UpdateInventoryUI();
-        itemEquipManager.UpdateModelsInInventory(this);
+        itemEquipManager.UpdateModelsInEquipList(this);
     }
 }
 

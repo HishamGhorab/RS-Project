@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3810481501593387768}
   - component: {fileID: 1963557415}
-  - component: {fileID: 1963557412}
   - component: {fileID: 1963557413}
   - component: {fileID: 1963557414}
+  - component: {fileID: 1137893750}
+  - component: {fileID: 1137893747}
+  - component: {fileID: 1137893749}
   m_Layer: 0
   m_Name: OakTreeGathering
   m_TagString: Untagged
@@ -35,7 +37,7 @@ Transform:
   - {fileID: 6065137752161912537}
   - {fileID: 7484016775205181618}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1963557415
 MeshCollider:
@@ -51,24 +53,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d064bc2d7f3c50541a6819bc4f3b3c84, type: 2}
---- !u!114 &1963557412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5693041349049571027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0, g: 1, b: 0.09082031, a: 1}
-  outlineWidth: 0.5
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1963557413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,12 +87,73 @@ MonoBehaviour:
     - tableLoot:
       - item: {fileID: 11400000, guid: a0ef8508d39ff1547be3c853531fd0f2, type: 2}
         odds: 3
+      - item: {fileID: 11400000, guid: de253c46fa69a2d40a807146171a4e14, type: 2}
+        odds: 7
     - tableLoot:
       - item: {fileID: 11400000, guid: fa2ce09db703f74428a963806fbe0ee7, type: 2}
         odds: 64
       - item: {fileID: 11400000, guid: 1fc8842679f5ac645bf439f882ea3fba, type: 2}
         odds: 1000
   interacting: 0
+--- !u!64 &1137893750
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5693041349049571027}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: d064bc2d7f3c50541a6819bc4f3b3c84, type: 2}
+--- !u!114 &1137893747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5693041349049571027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76bf92f9cadb520409d0b6370d2dd48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToInteract: 5
+  trainedSkillName: Woodcutting
+  itemToInteract: {fileID: 11400000, guid: de253c46fa69a2d40a807146171a4e14, type: 2}
+  chanceToDeplete: 8
+  dropTable:
+    dropTables:
+    - tableLoot:
+      - item: {fileID: 11400000, guid: a0ef8508d39ff1547be3c853531fd0f2, type: 2}
+        odds: 3
+      - item: {fileID: 11400000, guid: de253c46fa69a2d40a807146171a4e14, type: 2}
+        odds: 7
+    - tableLoot:
+      - item: {fileID: 11400000, guid: fa2ce09db703f74428a963806fbe0ee7, type: 2}
+        odds: 64
+  interacting: 0
+--- !u!114 &1137893749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5693041349049571027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.09082031, a: 1}
+  outlineWidth: 0.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6331105752959332239
 GameObject:
   m_ObjectHideFlags: 0
