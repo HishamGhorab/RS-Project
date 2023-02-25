@@ -43,7 +43,7 @@ public class Interact : MonoBehaviour
         if (iObject.interactionType == InteractableObject.InteractionType.Gathering)
         {
             gStationInteracting = iObject.GetComponent<GatheringStation>();
-            GatherInteractStart(iObject, gStationInteracting);
+            GatherInteractStart(gStationInteracting);
         }
         else
         {
@@ -74,11 +74,9 @@ public class Interact : MonoBehaviour
         }
     }
 
-    public void GatherInteractStart(InteractableObject iObject, GatheringStation station)
+    public void GatherInteractStart(GatheringStation station)
     {
-        int skillLevel = PlayerSkills.LevelDictionary[station.trainedSkillName + "Level"];
-        
-        station.StartInteracting(playerInventory, skillLevel);
+        station.StartInteracting(gameObject);
     }
     
     public void CombatInteractStart()

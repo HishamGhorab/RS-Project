@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Items;
 using Random = UnityEngine.Random;
 using UnityEngine;
 
@@ -8,25 +9,22 @@ using UnityEngine;
 [RequireComponent(typeof(Outline))]
 public class GatheringStation : MonoBehaviour
 {
-    [Range(0, 99)] [SerializeField] 
+    [Range(1, 99)] [SerializeField] 
     private int levelToInteract;
 
     public string trainedSkillName;
 
     [SerializeField] private Item itemToInteract;
-    
     [SerializeField] private int chanceToDeplete;
-    
-    //[Range(0, 100)] [SerializeField] 
-    //private float percentToReward;
-    
+    [SerializeField] private int expReward;
+
     [SerializeField] private DropTable dropTable;
     
     public bool interacting;
+    
+    private GameObject interactingPlayer;
     private float nextSecond;
 
-    private PlayerInventory interactingPlayerInv;
-    private int interactingPlayerLevel;
 
     private void Update()
     {
@@ -38,17 +36,19 @@ public class GatheringStation : MonoBehaviour
                 return;
             }
             
-            Interact(interactingPlayerInv, interactingPlayerLevel);
+            RewardPlayer();
             nextSecond = Time.time + 1;
         }
     }
 
-    public void StartInteracting(PlayerInventory playerInventory, int level)
+    public void StartInteracting(GameObject _interactingPlayer)
     {
-        interactingPlayerInv = playerInventory;
-        interactingPlayerLevel = level;
+        interactingPlayer = _interactingPlayer;
         
-        if (level < levelToInteract)
+        PlayerInventory playerInventory = interactingPlayer.GetComponent<PlayerInventory>();
+        Level level = interactingPlayer.GetComponent<PlayerSkills>().LevelDictionary[trainedSkillName + "Level"];
+
+        if (level.level < levelToInteract)
         {
             Debug.Log("You dont have the required level to interact with this");
             StopInteracting();
@@ -75,25 +75,28 @@ public class GatheringStation : MonoBehaviour
 
     public void StopInteracting()
     {
-        interactingPlayerInv = null;
-        interactingPlayerLevel = -1;
-        
+        interactingPlayer = null;
+
         GetComponent<InteractableObject>().OnDeselected();
 
         interacting = false;
     }
 
-    public void Interact(PlayerInventory playerInventory, int level)
+    public void RewardPlayer()
     {
-        Result(playerInventory);
+        PlayerInventory playerInventory = interactingPlayer.GetComponent<PlayerInventory>();
+        Level level = interactingPlayer.GetComponent<PlayerSkills>().LevelDictionary[trainedSkillName + "Level"];
+
+        level.Experience += expReward;
+        LootResult(playerInventory);
     }
 
-    public void Result(PlayerInventory playerInventory)
+    public void LootResult(PlayerInventory playerInventory)
     {
         List<Item> rolls = dropTable.RollTables();
         for (int i = 0; i < rolls.Count; i++)
         {
-            Debug.Log(rolls[i]);
+            //Debug.Log(rolls[i]);
             
             if (rolls[i] == null)
                 continue;

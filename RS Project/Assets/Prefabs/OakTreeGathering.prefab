@@ -37,7 +37,7 @@ Transform:
   - {fileID: 6065137752161912537}
   - {fileID: 7484016775205181618}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1963557415
 MeshCollider:
@@ -78,10 +78,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bf92f9cadb520409d0b6370d2dd48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToInteract: 5
+  levelToInteract: 1
   trainedSkillName: Woodcutting
   itemToInteract: {fileID: 11400000, guid: de253c46fa69a2d40a807146171a4e14, type: 2}
   chanceToDeplete: 8
+  expReward: 90
   dropTable:
     dropTables:
     - tableLoot:
@@ -125,6 +126,7 @@ MonoBehaviour:
   trainedSkillName: Woodcutting
   itemToInteract: {fileID: 11400000, guid: de253c46fa69a2d40a807146171a4e14, type: 2}
   chanceToDeplete: 8
+  expReward: 0
   dropTable:
     dropTables:
     - tableLoot:

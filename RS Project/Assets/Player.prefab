@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6289900762725875787}
   - component: {fileID: 6289900762725875786}
   - component: {fileID: 6289900762725875797}
-  - component: {fileID: 5107754480365861120}
+  - component: {fileID: 1403184173055477911}
   - component: {fileID: 6289900762725875785}
   - component: {fileID: 6289900762725875790}
   - component: {fileID: 6289900762725875788}
@@ -137,7 +137,7 @@ Transform:
   m_Children:
   - {fileID: 6289900762592264504}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 88.5, z: 0}
 --- !u!33 &6289900762725875787
 MeshFilter:
@@ -202,7 +202,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5107754480365861120
+--- !u!114 &1403184173055477911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,6 +214,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b89a5eecb1401f42b1a6e0f2058fd3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CombatLevel:
+    level: 1
+    experience: 0
+    experienceToLevel: 100
+  MiningLevel:
+    level: 1
+    experience: 0
+    experienceToLevel: 100
+  WoodcuttingLevel:
+    level: 1
+    experience: 0
+    experienceToLevel: 100
 --- !u!114 &6289900762725875785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +239,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStackValue: 3
+  inventoryUI: {fileID: 0}
+  Equips:
+  - ItemType: 0
+    slot:
+      item: {fileID: 0}
+      quantity: 0
+  - ItemType: 0
+    slot:
+      item: {fileID: 0}
+      quantity: 0
+  - ItemType: 0
+    slot:
+      item: {fileID: 0}
+      quantity: 0
+  - ItemType: 0
+    slot:
+      item: {fileID: 0}
+      quantity: 0
+  - ItemType: 0
+    slot:
+      item: {fileID: 0}
+      quantity: 0
+  - ItemType: 0
+    slot:
+      item: {fileID: 0}
+      quantity: 0
   inventory:
   - item: {fileID: 11400000, guid: e0e07a7f8406b364bb76e44800227f47, type: 2}
     quantity: 1
@@ -251,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   station: {fileID: 0}
-  level: 75
+  interacting: 0
 --- !u!195 &6289900762725875788
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -287,7 +325,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingToSelected: 0
-  s: {fileID: 0}
 --- !u!114 &6289900762725875789
 MonoBehaviour:
   m_ObjectHideFlags: 0

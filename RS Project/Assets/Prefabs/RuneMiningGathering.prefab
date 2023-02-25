@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2558551774904236053
 MeshFilter:
@@ -125,10 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bf92f9cadb520409d0b6370d2dd48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToInteract: 75
+  levelToInteract: 1
   trainedSkillName: Mining
   itemToInteract: {fileID: 11400000, guid: e0e07a7f8406b364bb76e44800227f47, type: 2}
   chanceToDeplete: 5
+  expReward: 50
   dropTable:
     dropTables:
     - tableLoot:
@@ -141,6 +142,8 @@ MonoBehaviour:
     - tableLoot:
       - item: {fileID: 11400000, guid: bb26446b641dfac4abfd21b7ff11ccf3, type: 2}
         odds: 64
+      - item: {fileID: 11400000, guid: de253c46fa69a2d40a807146171a4e14, type: 2}
+        odds: 1000
   interacting: 0
 --- !u!114 &2558551774904236048
 MonoBehaviour:
