@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
-    [SerializeField] private GatheringStation station;
+    private GatheringStation station;
     
     private PlayerInventory playerInventory;
 
@@ -14,6 +14,9 @@ public class Interact : MonoBehaviour
     private GatheringStation gStationInteracting;
 
     public bool interacting = false;
+
+    public static Action OnGatheringEventStart;
+    public static Action OnGatheringEventEnd;
 
     private void OnEnable()
     {
@@ -55,21 +58,12 @@ public class Interact : MonoBehaviour
     {
         
     }
-    
-    public void OnInteractEnd()
-    {
-        if (!gStationInteracting)
-            return;
-        
-        gStationInteracting.StopInteracting();
-        gStationInteracting = null;
-    }
 
     public void CheckIfInteractionEnd()
     {
         if (interacting)
         {
-            OnInteractEnd();
+            OnGatheringStop();
             interacting = false;
         }
     }
@@ -77,6 +71,19 @@ public class Interact : MonoBehaviour
     public void GatherInteractStart(GatheringStation station)
     {
         station.StartInteracting(gameObject);
+        OnGatheringEventStart.Invoke();
+    }
+    
+    public void OnGatheringStop()
+    {
+        if (!gStationInteracting)
+            return;
+        
+        Debug.Log("hi");
+        
+        gStationInteracting.StopInteracting();
+        OnGatheringEventEnd.Invoke();
+        gStationInteracting = null;
     }
     
     public void CombatInteractStart()

@@ -34,7 +34,14 @@ public class PlayerToMousePos : MonoBehaviour
     {
         mousePosition = Input.mousePosition;
         Camera cam = Camera.main;
-        
+
+        /*if (Approximation(GetTotalVel(), 0, 0.05f))
+        {
+            Debug.Log("hi");
+            agent.velocity = Vector3.zero;
+            agent.ResetPath();
+        }*/
+
         //Move to ground position
         if (Input.GetMouseButtonDown(0))
         {
@@ -68,5 +75,22 @@ public class PlayerToMousePos : MonoBehaviour
         agent.SetDestination(_selectedPosition);
         selectedPosition = _selectedPosition;
         movingToSelected = true;
+    }
+
+    public float GetTotalVel()
+    {
+        return agent.velocity.x + agent.velocity.y + agent.velocity.z;
+    }
+    
+    /// <summary>
+    /// compare both values (a, b) and see if the difference is between threshold
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <param name="threshold"></param>
+    /// <returns></returns>
+    public static bool Approximation(float a, float b, float threshold)
+    {
+        return (Mathf.Abs(a - b) < threshold); // compare both values and see if the difference is between threshold
     }
 }

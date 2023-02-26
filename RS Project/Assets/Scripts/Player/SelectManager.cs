@@ -11,7 +11,7 @@ public class SelectManager : MonoBehaviour
     //if highlighted and pressed button
     //select
     
-    public InteractableObject highlightedObject;
+    [NonSerialized] public InteractableObject highlightedObject;
     private bool pressed;
 
     private void Update()
