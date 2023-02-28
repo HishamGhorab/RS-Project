@@ -6,22 +6,22 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    private Player owner;
+    
     public int maxStackValue;
     [SerializeField] private InventoryUI inventoryUI;
 
     public EquipSlot[] Equips = new EquipSlot[6];
 
     public InventorySlot[] inventory = new InventorySlot[28];
-
-    private ItemEquipManager itemEquipManager;
     
     public delegate void OnItemEquip(Item _item);
     public static event OnItemEquip onItemEquip;
 
     private void Start()
     {
-        itemEquipManager = GetComponent<ItemEquipManager>();
-        itemEquipManager.UpdateModelsInEquipList(this);
+        owner = GetComponent<Player>();
+        owner.ItemEquipManagerComponent.UpdateModelsInEquipList(this);
     }
 
     public void AddToInventory(Item _item)
@@ -151,7 +151,7 @@ public class PlayerInventory : MonoBehaviour
     void UpdateInventoryUI()
     {
         inventoryUI.UpdateInventoryUI();
-        itemEquipManager.UpdateModelsInEquipList(this);
+        owner.ItemEquipManagerComponent.UpdateModelsInEquipList(this);
     }
 }
 

@@ -13,11 +13,6 @@ public class PlayerSkills : MonoBehaviour
     
     public Dictionary<string, Level> LevelDictionary;
 
-    private void Awake()
-    {
-        Level.InitExperienceDictionary();
-    }
-
     public void Start()
     {
         //todo: figure out a better way for this because skills wont update when u level in the variables above

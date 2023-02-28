@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2900003574011228887}
   - component: {fileID: 2900003574011228873}
+  - component: {fileID: 555128871144228957}
   - component: {fileID: 2900003574011228886}
   - component: {fileID: 2900003574011228879}
   - component: {fileID: 2900003574011228876}
@@ -38,7 +39,7 @@ Transform:
   m_Children:
   - {fileID: 2900003574417150155}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 88.5, z: 0}
 --- !u!195 &2900003574011228873
 NavMeshAgent:
@@ -62,6 +63,27 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &555128871144228957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900003574011228884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea46da108c0a6f4fa843944a43dbd64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerToMousePos: {fileID: 0}
+  playerSkills: {fileID: 0}
+  interact: {fileID: 0}
+  distance: {fileID: 0}
+  playerInventory: {fileID: 0}
+  itemEquipManager: {fileID: 0}
+  selectManager: {fileID: 0}
+  playerAnimation: {fileID: 9184201426934792228}
+  handPosition: {fileID: 9184201426972064798}
 --- !u!114 &2900003574011228886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0deda267602495a4294d9ef3d9d6e061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handPosition: {fileID: 9184201426972064798}
 --- !u!1 &2900003574417150167
 GameObject:
   m_ObjectHideFlags: 0

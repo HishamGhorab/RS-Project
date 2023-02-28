@@ -6,9 +6,8 @@ using UnityEngine.AI;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    private Animator animationController;
-
+    public Player owner;
+    
     private void OnEnable()
     {
         Interact.OnGatheringEventStart += StartGatherAnim;
@@ -21,36 +20,30 @@ public class PlayerAnimation : MonoBehaviour
         Interact.OnGatheringEventEnd -= StopGatherAnim;
     }
 
-    private void Start()
-    {
-        //agent = GetComponent<NavMeshAgent>();
-        animationController = GetComponent<Animator>();
-    }
-
     private void Update()
     {
-        //Debug.Log(agent.velocity);
+        Debug.Log(owner);
         
-        if (agent.velocity != Vector3.zero)
+        if (owner.AgentComponent.velocity != Vector3.zero)
         {
             //Debug.Log("moving");
-            animationController.SetBool("PlayerWalk", true);
+            owner.AnimatorComponent.SetBool("PlayerWalk", true);
         }
         else
         {
             //Debug.Log("not moving");
-            animationController.SetBool("PlayerWalk", false);
+            owner.AnimatorComponent.SetBool("PlayerWalk", false);
         }
     }
 
     public void StartGatherAnim()
     {
-        animationController.SetBool("PlayerGather", true);
+        owner.AnimatorComponent.SetBool("PlayerGather", true);
     }
     
     public void StopGatherAnim()
     {
-        animationController.SetBool("PlayerGather", false);
+        owner.AnimatorComponent.SetBool("PlayerGather", false);
     }
 }
 

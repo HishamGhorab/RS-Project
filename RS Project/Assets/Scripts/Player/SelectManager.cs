@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SelectManager : MonoBehaviour
 {
+    private Player owner;
     //if mouse hovers object with tag or script
     //Highlight it
     
@@ -13,6 +14,11 @@ public class SelectManager : MonoBehaviour
     
     [NonSerialized] public InteractableObject highlightedObject;
     private bool pressed;
+    
+    private void Start()
+    {
+        owner = GetComponent<Player>();
+    }
 
     private void Update()
     {
@@ -52,7 +58,7 @@ public class SelectManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<InteractableObject>())
             {
                 pressed = true;
-                GetComponent<PlayerToMousePos>().MeleeMoveToSelected(hit.collider.transform.position);
+                owner.PlayerToMousePosComponent.MeleeMoveToSelected(hit.collider.transform.position);
             }
 
             highlightedObject = interactableObj;
